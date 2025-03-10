@@ -45,9 +45,11 @@ builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 // ========================================
 builder.Services.AddAuthentication(options =>
 {
+    // Use cookies for the initial authentication flow (Auth0 redirect)
     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = "Auth0"; // Use OpenID Connect for login
+    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme; // This will be invoked on 401 responses
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
 })
 .AddCookie()
 .AddJwtBearer(options =>
@@ -71,6 +73,7 @@ builder.Services.AddAuthentication(options =>
         NameClaimType = ClaimTypes.Name
     };
 });
+
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 

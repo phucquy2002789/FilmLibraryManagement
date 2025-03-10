@@ -166,6 +166,7 @@ C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debu
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.csproj.CoreCompileInputs.cache
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.sourcelink.json
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\scopedcss\bundle\FilmLibraryManagement.styles.css
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets.development.json
@@ -176,10 +177,10 @@ C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debu
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.FilmLibraryManagement.props
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.FilmLibraryManagement.props
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibr.58C48E80.Up2Date
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.dll
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\refint\FilmLibraryManagement.dll
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.pdb
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\FilmLibraryManagement.genruntimeconfig.cache
 C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\ref\FilmLibraryManagement.dll
-C:\Users\tranp\source\repos\FilmLibraryManagement\FilmLibraryManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 [Route("auth")]
 [ApiController]
@@ -20,11 +21,13 @@ public class AuthController : ControllerBase
     [HttpGet("login")]
     public IActionResult Login()
     {
-        var properties = new AuthenticationProperties
+        var authenticationProperties = new AuthenticationProperties
         {
-            RedirectUri = Url.Action(nameof(Callback), "Auth") // Callback after login
+            RedirectUri = Url.Action(nameof(Callback), "Auth") //  crucial redirect
         };
-        return Challenge(properties, "Auth0");
+
+        // Directly challenge with the OpenID Connect authentication scheme ("Auth0")
+        return Challenge(authenticationProperties, OpenIdConnectDefaults.AuthenticationScheme);
     }
 
     // 🔹 Auth0 callback (process login result)
@@ -37,14 +40,14 @@ public class AuthController : ControllerBase
             return BadRequest("Authentication failed.");
         }
 
-        // ✅ Store JWT for API calls
+        // Store the JWT token from Auth0 in the session or send it to the client
         var accessToken = result.Properties.GetTokenValue("access_token");
         if (string.IsNullOrEmpty(accessToken))
         {
             return Unauthorized("No access token received.");
         }
 
-        return Redirect("https://localhost:7038/swagger/index.html"); // ✅ Redirect after login
+        return Redirect("https://localhost:7038/swagger/index.html"); // Redirect after login
     }
     //[HttpGet("callback")]
     //public async Task<IActionResult> Callback()

@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FilmLibraryManagement.Controllers
 {
@@ -24,6 +26,7 @@ namespace FilmLibraryManagement.Controllers
         }
 
         [HttpGet("movies/{pageNumber}/{pageSize}")]
+        
         public async Task<IActionResult> GetMovies(int pageNumber, int pageSize)
         {
             try

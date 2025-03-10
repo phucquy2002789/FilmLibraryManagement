@@ -5,6 +5,8 @@ using FilmLibraryManagement.Models;
 using FilmLibraryManagement.Dto;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -20,6 +22,7 @@ public class DirectorController : ControllerBase
     }
 
     [HttpGet]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> GetDirectors()
     {
         try
