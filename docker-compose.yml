@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  filmlibrarymanagement:
+    image: filmlibrarymanagement  # ? Replace with ${DOCKER_REGISTRY-}filmlibrarymanagement if needed
+    build:
+      context: .  # ? Keep as is, unless your project is in a subfolder
+      dockerfile: FilmLibraryManagement/Dockerfile  # ? Ensure this matches your actual Dockerfile path
+    container_name: filmlibrary_app  # ? Optional: Change if you want a different container name
+    ports:
+      - "8080:8080"   # ? Keep or change if your app listens on another port
+      - "8081:8081"   # ? Keep or change for HTTPS
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  # ? Ensure it matches your app's environment settings
+    depends_on:
+      - db  # ? If using a database, keep this. Otherwise, remove.
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest  # ? Keep if using SQL Server, change if using a different DB
+    container_name: sqlserver_db  # ? Optional: Change if needed
+    ports:
+      - "1433:1433"  # ? Keep for SQL Server, change if needed
+    environment:
+      SA_PASSWORD: "StrongP@ssw0rd!"  # ? Replace with a **secure** password
+      ACCEPT_EULA: "Y"  # ? Keep as is
