@@ -22,7 +22,7 @@ jobs:
 
     # Step 3: Restore dependencies (Corrected)
     - name: Restore dependencies
-      run: dotnet restore ./FilmLibraryManagement/FilmLibraryManagement.sln  # Ensure the path to the solution file is correct
+      run: dotnet restore ./FilmLibraryManagement.sln  # Ensure the path to the solution file is correct
 
     # Step 4: Build the project
     - name: Build the project
