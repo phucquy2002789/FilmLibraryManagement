@@ -1,29 +1,27 @@
-# Base image for running the app (ASP.NET runtime image)
+# Base image for running the app
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-# Use an SDK image for building the application
+# Build stage using SDK image
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# Copy project file and restore dependencies
-COPY FilmLibraryManagement.csproj ./FilmLibraryManagement/
+# Copy the .csproj file and restore dependencies
+COPY ./FilmLibraryManagement.csproj ./FilmLibraryManagement/
 WORKDIR /src/FilmLibraryManagement
-RUN dotnet restore "./FilmLibraryManagement.csproj"
+RUN dotnet restore
 
-# Copy the entire project and build
+# Copy the rest of the project files
 COPY . ./
-RUN dotnet publish "./FilmLibraryManagement.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Final stage: production-ready image
+# Publish the app
+RUN dotnet publish -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+# Final stage to run the app
 FROM base AS final
 WORKDIR /app
-
-# Copy the published application
-COPY --from=build /app/publish .
-
-# Run the application
+COPY --from=build /app/publish ./
 ENTRYPOINT ["dotnet", "FilmLibraryManagement.dll"]
