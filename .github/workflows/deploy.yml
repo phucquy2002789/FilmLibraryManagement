@@ -20,9 +20,9 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    # Step 3: Restore dependencies (Corrected)
+    # Step 3: Restore dependencies
     - name: Restore dependencies
-      run: dotnet restore ./FilmLibraryManagement.sln  # Ensure the path to the solution file is correct
+      run: dotnet restore ./FilmLibraryManagement.sln
 
     # Step 4: Build the project
     - name: Build the project
@@ -43,32 +43,10 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
 
-    # Step 8: Build Docker image with docker-compose
+    # Step 8: Navigate to the directory with docker-compose.yml and build Docker image
     - name: Build Docker image
       run: |
+        cd FilmLibraryManagement  # Navigate to the subfolder where docker-compose.yml is located
         docker-compose -f docker-compose.yml build filmlibrarymanagement
       env:
         DOCKER_BUILDKIT: 1
-
-    # Optional Deployment steps
-    # Uncomment the relevant deployment method depending on where you want to deploy the app
-    
-    # Step 9: Deploy to server via SCP (If you need to use SCP)
-    # - name: Deploy to server via SCP
-    #   if: success()
-    #   uses: appleboy/scp-action@v0.1.7
-    #   with:
-    #     host: ${{ secrets.SERVER_HOST }}
-    #     username: ${{ secrets.SERVER_USER }}
-    #     key: ${{ secrets.SERVER_SSH_KEY }}
-    #     source: "./publish"
-    #     target: "/var/www/your-api-folder"
-    #     port: 22
-
-    # Step 10: Deploy to Azure Web App (If you need Azure deployment)
-    # - name: Deploy to Azure Web App
-    #   uses: Azure/webapps-deploy@v2
-    #   with:
-    #     app-name: <your-app-name>
-    #     publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-    #     package: ./publish
