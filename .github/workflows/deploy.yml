@@ -36,7 +36,14 @@ jobs:
     - name: Publish the app
       run: dotnet publish ./FilmLibraryManagement/FilmLibraryManagement.csproj --configuration Release --no-restore --no-build -o ./publish
 
-    # Step 7: Build Docker image
+    # Step 7: Install Docker Compose (if needed)
+    - name: Install Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose --version
+
+    # Step 8: Build Docker image with docker-compose
     - name: Build Docker image
       run: |
         docker-compose -f docker-compose.yml build filmlibrarymanagement
@@ -46,7 +53,7 @@ jobs:
     # Optional Deployment steps
     # Uncomment the relevant deployment method depending on where you want to deploy the app
     
-    # Step 8: Deploy to server via SCP (If you need to use SCP)
+    # Step 9: Deploy to server via SCP (If you need to use SCP)
     # - name: Deploy to server via SCP
     #   if: success()
     #   uses: appleboy/scp-action@v0.1.7
@@ -58,7 +65,7 @@ jobs:
     #     target: "/var/www/your-api-folder"
     #     port: 22
 
-    # Step 9: Deploy to Azure Web App (If you need Azure deployment)
+    # Step 10: Deploy to Azure Web App (If you need Azure deployment)
     # - name: Deploy to Azure Web App
     #   uses: Azure/webapps-deploy@v2
     #   with:
