@@ -54,7 +54,7 @@ jobs:
         with:
            context: ./FilmLibraryManagement  # Pointing to the correct directory
            push: true
-           tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d545a14de8b4f8785716175fe77f3f6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}
+           tags: index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_7D545A14DE8B4F8785716175FE77F3F6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}
            file: ./FilmLibraryManagement/Dockerfile  # Path to Dockerfile
 
 
@@ -76,5 +76,5 @@ jobs:
         with:
           app-name: 'film-library-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_d7b0096658224925810698635a44c7b1 }}
-          images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d545a14de8b4f8785716175fe77f3f6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D7B0096658224925810698635A44C7B1 }}
+          images: 'index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_7D545A14DE8B4F8785716175FE77F3F6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}'
