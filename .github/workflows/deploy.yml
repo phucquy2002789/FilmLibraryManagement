@@ -52,10 +52,10 @@ jobs:
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
-          context: .
-          push: true
-          tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d545a14de8b4f8785716175fe77f3f6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}
-          file: ./Dockerfile
+           context: ./FilmLibraryManagement/FilmLibraryManagement
+           push: true
+           tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d545a14de8b4f8785716175fe77f3f6 }}/zwen2002/filmlibrarymanagement:${{ github.sha }}
+           file: ./FilmLibraryManagement/FilmLibraryManagement/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
