@@ -137,11 +137,10 @@ ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 // ========================================
 // Configure Middleware
 // ========================================
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
